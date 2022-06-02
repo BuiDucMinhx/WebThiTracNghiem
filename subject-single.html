@@ -1,0 +1,87 @@
+<section class="page-title-section overlay">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="notice.html">{{subject.Name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="countdown">
+          {{counter | secondsToDateTime | date:'mm:ss'}}
+          <pre class="correct text-success">Câu đúng {{marks}} / {{maxSize}} câu</pre>
+        </div>
+        <ul class="card card-question" ng-repeat="item in filteredItems">
+          <li style="background-color: deepskyblue;" class="card-header">Câu {{curPage}}: {{item.Text}}</li>
+          <li class="card-body">
+            <div class="input-group" ng-repeat="a in item.Answers">
+              <label>
+                <input ng-checked="false" ng-disabled="item.checked|| show == true" id="checked{{a.Id}}"
+                  ng-click="chooseAnswer(a.Id, curPage, item.Id)" type="radio" name="answer" class="answer"
+                  ng-model="answer">{{a.Text}}
+              </label>
+            </div>
+          </li>
+        </ul>
+        <div style="background-color: deepskyblue;" class="card-question-footer row">
+          <span class="col-4">Câu hỏi: {{curPage}} / {{maxSize}}</span>
+          <div class="col-8 " data-pagination="" data-num-pages="numOfPages()" data-current-page="curPage"
+             data-boundary-links="true">
+          </div>
+        </div>
+        <button class="bg-dark text-black border-0 btn-lg btn btn-primary col-md-12" onClick="document.getElementById('kq').scrollIntoView();" ng-click="show = true;  hetgio()" >Submit</button>
+      </div>
+    </div>
+</section>
+<section class="section" id="kq">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div ng-show="show_me" style=" border: 10px solid LightGray;"><br>
+          <h2 style="background-color: lightseagreen;">Test result</h2>
+          <div class="text-danger border p-1">Câu 1: CHỌN {{chon1}} - 
+          <p class="text-success p-1">Đáp án: {{dapan1}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 2: CHỌN {{chon2}} - 
+            <p class="text-success p-1">Đáp án: {{dapan2}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 3: CHỌN {{chon3}} - 
+            <p class="text-success p-1">Đáp án: {{dapan3}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 4: CHỌN {{chon4}} - 
+            <p class="text-success p-1">Đáp án: {{dapan4}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 5: CHỌN {{chon5}} - 
+            <p class="text-success p-1">Đáp án: {{dapan5}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 6: CHỌN {{chon6}} - 
+            <p class="text-success p-1">Đáp án: {{dapan6}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 7: CHỌN {{chon7}} - 
+            <p class="text-success p-1">Đáp án: {{dapan7}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 8: CHỌN {{chon8}} - 
+            <p class="text-success p-1">Đáp án: {{dapan8}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 9: CHỌN {{chon9}} - 
+            <p class="text-success p-1">Đáp án: {{dapan9}}</p> 
+          </div>
+          <div class="text-danger border p-1">Câu 10: CHỌN {{chon10}} - 
+            <p class="text-success p-1">Đáp án: {{dapan10}}</p> 
+          </div>
+          <div class="correct text-center col-md-12 text-danger" >Bạn đúng {{marks}} / {{maxSize}} câu</div>
+          <div class="correct text-center col-md-12 text-primary">Thời gian làm bài: {{hetgio| secondsToDateTime | date:'mm:ss'}}</div>
+        </div><br><br><br><br>
+        <button class="button bg-success text-white border-0 btn-lg btn btn-primary"  ng-click="show_me = !show_me" ng-show = "show">Hiển thị kết quả</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

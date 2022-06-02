@@ -1,0 +1,61 @@
+<style>
+	.not-login {height: 300px; text-align: center;}
+</style>
+<section ng-if="userName" class="page-title-section overlay" data-background="images/images/slide4.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><span class="h2 text-primary font-secondary">Quản lý tài khoản</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section ng-if="userName" class="section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Đổi mật khẩu</h2>
+                </div>
+				<div>{{msg}}</div>
+                <form ng-submit="changePass()">
+                    <div class="form-group">
+                        <label>Tên người dùng:</label>
+                        <input type="text" class="form-control mb-3" name="username" placeholder="{{userName}}" ng-model="username" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu cũ:</label>
+                        <input type="password" class="form-control mb-3" ng-model="oldpassword" name="oldpassword" placeholder="Mật khẩu cũ" required="" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu mới:</label>
+                        <input type="password" class="form-control mb-3" ng-model="newpassword" name="newpassword" placeholder="Mật khẩu mới" required="" />
+                    </div>
+					<div class="form-group">
+                        <label>Xác nhận mật khẩu mới:</label>
+                        <input type="password" class="form-control mb-3" ng-model="cpassword" name="cpassword" placeholder="Xác nhận mật khẩu" required="" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                </form>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+</section>
+
+<section ng-if="!userName" class="page-title-section overlay" data-background="images/slide4.png">
+</section>
+<section ng-if="!userName" class="section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-12 mb-4 mb-lg-0">
+                <h2>Vui lòng đăng nhập</h2>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+</section>

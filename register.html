@@ -1,0 +1,59 @@
+<style>
+	.container-body {
+		background:url(./images/backgrounds/background.jpg) no-repeat 0px 0px;
+		background-size: 100%;
+		background-size:cover;
+		background-position:center;
+		background-attachment:fixed;
+	}
+	.section-login{
+		padding: 15% 0 5% 0;
+	}
+	.form-sub-w3 input[type="text"], input[type="password"] {
+		width: 100%;
+	}
+</style>
+<div class="section-login">
+		<div class="main-w3layouts-agileinfo">
+			<div class="wthree-form">
+				<h2>ĐĂNG KÝ THÀNH VIÊN</h2>
+				<div>{{msg}}</div>
+				<form ng-controller="addStudent">
+					<div class="form-sub-w3">
+						<input type="text" ng-model="fullname" name="fullname" placeholder="Họ và tên " required="" />
+					</div>
+					<div class="form-sub-w3">
+						<input type="text" ng-model="username" name="username" placeholder="Tên người dùng " required="" />
+					</div>
+					<div class="form-sub-w3">
+						<input type="password" ng-model="password" name="password" placeholder="Mật khẩu" required="" />
+					</div>
+					<div class="form-sub-w3">
+						<input type="text" ng-model="email" name="email" placeholder="Email " required="" />
+					</div>
+					<div class="form-sub-w3">
+						<input type="text" ng-model="birthday" name="birthday" placeholder="Ngày sinh " required="" />
+					</div>
+					<div class="form-sub-w3-radio" >
+						<span>Giới tính:</span>
+						<label>
+							<input type="radio" ng-model="gender" value="true" name="gender" checked /> Nam
+						</label>
+						</label>
+							<input type="radio" ng-model="gender" value="false" name="gender" /> Nữ
+						</label>
+					</div>
+					<input type="hidden" ng-model="marks" name="marks" value="0" />
+					<input type="hidden" ng-model="schoolfee" name="schoolfee" value="0" />
+					<div class="clear"></div>
+					<div class="submit-agileits">
+						<input type="submit" ng-click="register(fullname, username, password, email, birthday, gender, marks, schoolfee)" value="Đăng ký">
+					</div>
+					<div class="clear"></div>
+					<label class="css-register">
+						<span>Bạn đã có tài khoản? <a href="#!login">Đăng nhập</a></span>
+					</label>
+				</form>
+			</div>
+		</div>
+	</div>

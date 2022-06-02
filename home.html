@@ -1,0 +1,154 @@
+<div style="margin-top: 120px;" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+
+	</ol>
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img class="d-block w-100" style="height: 400px;" src="images/slide5.jpg">
+		</div>
+		<div class="carousel-item">
+			<img class="d-block w-100" style="height: 400px;" src="images/slide1.png">
+		</div>
+		<div class="carousel-item">
+			<img class="d-block w-100" style="height: 400px;" src="images/slide2.png">
+		</div>
+		<div class="carousel-item">
+			<img class="d-block w-100" style="height: 400px;" src="images/slide3.jpg">
+		</div>
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-9 col-md-push-3 pt-2">
+		<div class="row justify-content-center">
+			<h3 class="text-danger">CHỌN MÔN THI <i class="fa fa-graduation-cap text-dark" aria-hidden="true"></i></h3>
+		</div>
+		<div class="row justify-content-center pl-3">
+			<div class="row-3 ml-2 mt-2" ng-repeat="sub in subjects | limitTo : 9">
+				<div class="card text-center" style="width: 20rem;">
+					<div class="card-body">
+						<a ng-if="userName" href="#!subject-single/{{sub.id}}"><img class="card-img-top rounded-0"
+								src="images/logos/{{sub.Logo}}" alt="Post thumb"></a>
+						<a ng-if="!userName" onclick="alert('Vui lòng đăng nhập để làm bài!')" href="#!login"><img
+								class="card-img-top rounded-0" src="images/logos/{{sub.Logo}}" alt="Post thumb"></a>
+					</div>
+					<div class="card-footer">
+						{{sub.Name}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="text-align: center; margin-top: 1%;"><a style="margin-left: 2%; width: 97.2%;" href="#!subjects"
+				class="btn btn-success">XEM THÊM</a></div>
+	</div>
+	<div class="col-xs-12 col-md-3 col-md-pull-9 pt-2">
+		<div class="card-header" id="headingThree" style="background-color: aqua;">
+			<div id="accordionExample">
+				<h5 class="mb-0">
+					<a data-toggle="collapse" data-target="#collapseThree"><i class="fa fa-bars" aria-hidden="true"></i>
+						DANH MỤC MÔN HỌC </a>
+				</h5>
+			</div>
+		</div>
+		<div>
+			<div class="card">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item aside-group-before aside-group" ng-repeat="su in subjects"><a
+							ng-href="#!subject-single/{{su.id}}">{{su.Name}}</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="mt-2">
+			<img src="images/tuyensinh.png" class="img-fluid">
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-12 col-md-pull-12 mt-5">
+		<!-- Topic Cards -->
+		<div id="cards_landscape_wrap-2" style="background-color: #EEEEEE; border-radius: 5px;">
+			<div class="container">
+				<h1>VỀ CHƯƠNG TRÌNH HỌC</h1>
+				<p>Thỏa sức sáng tạo với chương trình học của chúng tôi</p>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<div class="card-flyer">
+							<div class="text-box">
+								<div class="image-box">
+									<img src="images/CNDT1.png" alt="" />
+								</div>
+								<div class="text-container">
+									<h6 style="font-size: 15px;">Kinh doanh</h6>
+									<div class="text-left">
+										<p>• Trở thành doanh nhân</p>
+										<p>• Tìm hiểu về doanh nhân</p>
+										<p>• 461 khóa học</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<div class="card-flyer">
+							<div class="text-box">
+								<div class="image-box">
+									<img src="images/CNDT2.png" alt="" />
+								</div>
+								<div class="text-container">
+									<h6 style="font-size: 15px;">Công nghệ</h6>
+									<div class="text-left">
+										<p>• Nâng cao kĩ nâng lập trình</p>
+										<p>• Ngôn ngữ lập trình</p>
+										<p>• Quản trị hệ thống</p>
+										<p>• 593 khóa học</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<div class="card-flyer">
+							<div class="text-box">
+								<div class="image-box">
+									<img src="images/CNDT4.png" alt="" />
+								</div>
+
+								<div class="text-container">
+									<h6 style="font-size: 15px;">Kĩ năng cá nhân</h6>
+									<div class="text-left">
+										<p>• Cải thiện bản thân</p>
+										<p>• Nâng cao tinh thần</p>
+										<p>• Kĩ năng giao tiếp</p>
+										<p>• 674 khóa học</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<div class="card-flyer">
+							<div class="text-box">
+								<div class="image-box">
+									<img src="images/CNDT3.png" alt="" />
+								</div>
+								<div class="text-container">
+									<h6 style="font-size: 15px;">Khả năng ngoại ngữ</h6>
+									<div class="text-left">
+										<p>• Chinh phục IELTs</p>
+										<p>• Kĩ năng giao tiếp</p>
+										<p>• 204 khóa học</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

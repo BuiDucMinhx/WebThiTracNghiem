@@ -1,0 +1,57 @@
+<section class="page-title-section overlay" data-background="images/slide4.png">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+			<li class="list-inline-item"><span class="h2 text-white font-secondary">Danh mục môn</span></li>
+          <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="css-categories-test">
+            <h4><i class="fa fa-list-ul" aria-hidden="true"></i> DANH MỤC MÔN</h4>
+          </div>
+          <ul class="list-group list-group-cate" ng-repeat="sub in subjects">
+            <li class="list-group-item">
+              <a class="dropdown-item" ng-if="userName" href="#!subject-single/{{sub.id}}">{{sub.Name}}</a>
+			  <a class="dropdown-item" ng-if="!userName" onclick="alert('Vui lòng đăng nhập để làm bài!')" href="#!login">{{sub.Name}}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- notice content -->
+        <div class="col-8">
+          <div class="row">
+            <article class="col-lg-4 col-sm-6 mb-5" ng-repeat="sub in subjects | limitTo:limit">
+              <a ng-if="userName" href="#!subject-single/{{sub.id}}">
+                <div class="card rounded-0 border-bottom border-primary hover-shadow">
+                  <img class="card-img-top rounded-0" src="images/logos/{{sub.Logo}}" alt="Post thumb">
+                  <div class="card-body">
+                    <h4 class="card-title card-title-height">{{sub.Name}}</h4>
+                    <a ng-if="userName" href="#!subject-single/{{sub.id}}" class="btn btn-success btn-sm">Kiểm tra</a>
+                  </div>
+                </div>
+              </a>
+			  <a ng-if="!userName" onclick="alert('Vui lòng đăng nhập để làm bài!')" href="#!login">
+                <div class="card rounded-0 border-bottom border-primary hover-shadow">
+                  <img class="card-img-top rounded-0" src="images/logos/{{sub.Logo}}" alt="Post thumb">
+                  <div class="card-body">
+                    <h4 class="card-title card-title-height">{{sub.Name}}</h4>
+                    <a ng-if="!userName" onclick="alert('Vui lòng đăng nhập để làm bài!')" href="#!login" class="btn btn-success btn-sm">Kiểm tra</a>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+          <div ng-if="limit<20">
+            <button class="more btn btn-success btn-block" ng-click="loadMore()">Xem thêm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

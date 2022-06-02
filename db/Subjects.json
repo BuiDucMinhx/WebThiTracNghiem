@@ -1,0 +1,104 @@
+{
+  "subjects": [
+    {
+      "id": "ADAV",
+      "Name": "Lập trình Android nâng cao",
+      "Logo": "ADAV.jpg"
+    },
+    {
+      "id": "ADBS",
+      "Name": "Lập trình Android cơ bản",
+      "Logo": "ADBS.jpg"
+    },
+    {
+      "id": "ADTE",
+      "Name": "Kiểm thử và triển khai ứng dụng Android",
+      "Logo": "ADTE.jpg"
+    },
+    {
+      "id": "ADUI",
+      "Name": "Thiết kế giao diện trên Android",
+      "Logo": "ADUI.jpg"
+    },
+    {
+      "id": "ASNE",
+      "Name": "Lập trình ASP.NET",
+      "Logo": "ASNE.png"
+    },
+    {
+      "id": "CLCO",
+      "Name": "Điện toán đám mây",
+      "Logo": "CLCO.jpg"
+    },
+    {
+      "id": "DBAV",
+      "Name": "SQL Server",
+      "Logo": "DBAV.png"
+    },
+    {
+      "id": "DBBS",
+      "Name": "Cơ sở dữ liệu",
+      "Logo": "DBBS.png"
+    },
+    {
+      "id": "GAME",
+      "Name": "Lập trình game 2D",
+      "Logo": "GAME.png"
+    },
+    {
+      "id": "HTCS",
+      "Name": "HTML5 và CSS3",
+      "Logo": "HTCS.jpg"
+    },
+    {
+      "id": "INMA",
+      "Name": "Internet Marketing",
+      "Logo": "INMA.jpg"
+    },
+    {
+      "id": "JAAV",
+      "Name": "Lập trình Java nâng cao",
+      "Logo": "JAAV.png"
+    },
+    {
+      "id": "JABS",
+      "Name": "Lập trình hướng đối tượng với Java",
+      "Logo": "JABS.png"
+    },
+    {
+      "id": "JSPR",
+      "Name": "Lập trình JavaScript",
+      "Logo": "JSPR.png"
+    },
+    {
+      "id": "LAYO",
+      "Name": "Thiết kế layout",
+      "Logo": "LAYO.jpg"
+    },
+    {
+      "id": "MOWE",
+      "Name": "Thiết kế web cho điện thoại di động",
+      "Logo": "MOWE.png"
+    },
+    {
+      "id": "PHPP",
+      "Name": "Lập trình PHP",
+      "Logo": "PHPP.png"
+    },
+    {
+      "id": "PMAG",
+      "Name": "Quản lý dự án với Agile",
+      "Logo": "PMAG.jpg"
+    },
+    {
+      "id": "VBPR",
+      "Name": "Lập trình VB.NET",
+      "Logo": "VBPR.png"
+    },
+    {
+      "id": "WEBU",
+      "Name": "Xây dựng trang web",
+      "Logo": "WEBU.jpg"
+    }
+  ]
+}

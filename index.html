@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Assignment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-signin-client_id"
+    content="716705461429-t0kutj4s4vt6asjv6qpj6vfsac2nj245.apps.googleusercontent.com">
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link href="css/style.css" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script data-require="angular-ui-bootstrap@0.3.0" data-semver="0.3.0" src="js/pagination.js"></script>
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style-login.css" />
+  <meta name="google-signin-client_id"
+    content="2.apps.googleusercontent.com"> 
+  <script src="https://apis.google.com/js/platform.js"></script>
+
+</head>
+
+<body ng-app="myapp" ng-controller="ctrl" class="container-body">
+
+  <header style="background-color: #1a1a37;" class="fixed-top header">
+    <div class="top-header py-2 bg-gray text-">
+      <div class="container">
+        <div class="row no-gutters ">
+          <div class="col-lg-7 text-center text-lg-left ">
+            <ul class="list-inline d-inline">
+              <img src="images/vietnamflag.png" width="20">&nbsp;<img src="images/usaflag.png" width="20">
+              <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color"><i class="fa fa-phone-square"
+                    aria-hidden="true"></i> Điện thoại: 0914054080</a></li>
+              <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color"><i class="fa fa-envelope"
+                    aria-hidden="true"></i> minhbdps14733@fpt.edu.vn</a></li>
+              <div class="g-signin2 d-inline-block" data-onsuccess="onSignIn"
+                style="color: blue; position:absolute; right: 130px; ">Sign in</div>
+            </ul>
+
+          </div>
+          <div class="col-lg-5 text-center text-lg-right">
+
+            <ul class="list-inline">
+
+              <li ng-if="!userName" class="list-inline-item"><a
+                  class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#!login" data-toggle="modal"
+                  data-target="#loginModal"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>
+              <li ng-if="!userName" class="list-inline-item"><a
+                  class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#!register"
+                  data-toggle="modal" data-target="#signupModal"><i class="fa fa-pencil-square-o"
+                    aria-hidden="true"></i> Đăng kí</a></li>
+              <li ng-if="userName" class="list-inline-item dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"
+                  aria-hidden="true"></i> {{userName}}</li>
+              <li ng-if="userName" class="list-inline-item">
+                <a href="#!update-account" class="dropdown-item"><i class="fa fa-circle" aria-hidden="true"></i> Quản lý
+                  tài khoản</a>
+              </li>
+              <li ng-if="userName" class="list-inline-item">
+                <a href="#!change-pass" class="dropdown-item"><i class="fa fa-circle" aria-hidden="true"></i> Đổi mật
+                  khẩu</a>
+              </li>
+              <li ng-if="userName" class="list-inline-item">
+                <a class="dropdown-item" ng-click="clearSession()" onclick="signOut();"><i class="fa fa-circle"
+                    aria-hidden="true"></i> Đăng
+                  xuất</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navigation w-100">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-pink p-0">
+          <div id="navigation">
+            <ul class="navbar-nav ml-auto text-center">
+              <li class="nav-item">
+                <a class="nav-link" href="#/!"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+              </li>
+              <li class="nav-item @@courses">
+                <a class="nav-link" href="#!about"><i class="fa fa-pencil-square" aria-hidden="true"></i> Giới thiệu</a>
+              </li>
+              <li class="nav-item @@contact">
+                <a class="nav-link" href="#!contact"><i class="fa fa-envelope" aria-hidden="true"></i> Liên hệ</a>
+              </li>
+            </ul>
+          </div>
+          <a class="navbar-brand" href="#/!"><img src="images/logo.png" alt="logo"></a>
+          <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div ng-view></div>
+  <footer style="border-top: 10px solid darkmagenta;" class="bg-dark text-center text-light text-lg-start mt-5">
+    <div class="container-fluid p-4">
+      <div class="row">
+        <div class="col-lg-5 col-md-12 mb-4 mb-md-0">
+          <img src="images/logo.png" class="img-fluid">
+          <p style="font-size: 20px; color: greenyellow;">THÔNG TIN LIÊN HỆ</p>
+          <p>Điện thoại: 0914054080</p>
+          <p>Email: minhbdps14733@fpt.edu.vn</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-sm-left">
+          <h5 style="color: gold;" class="text-uppercase">ĐỊA CHỈ</h5>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <u>Địa chỉ</u>
+              <p style="font-size: 13px;"><i style="color: greenyellow;" class="fa fa-map-marker"
+                  aria-hidden="true"></i>
+                Công ty TNHH Công Nghệ Giáo Dục Topica Việt Nam</p>
+              <p style="font-size: 13px;"><i style="color: greenyellow;" class="fa fa-map-marker"
+                  aria-hidden="true"></i>
+                Địa chỉ: Tầng 6, Tòa nhà Kim Khí Thăng long, Sô 1 Lương Yên, Phường Bạch Đằng, Quận Hai Bà Trưng, Thành
+                phố Hà Nội, Việt Nam</p>
+              <p style="font-size: 13px;"><i style="color: greenyellow;" class="fa fa-phone-square"
+                  aria-hidden="true"></i>
+                (024) 7300 1955</p>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-sm-left">
+          <div class="mt-4"></div>
+          <ul class="list-unstyled">
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+      <a class="text-light" href="#">© 2021 Công ty TNHH Công Nghệ Giáo Dục Topica Việt Nam</a>
+    </div>
+  </footer>
+  <script>
+    var app = angular.module("myapp", ["ngRoute", "ui.bootstrap"]);
+    app.config(function ($routeProvider) {
+      $routeProvider
+        .when("/", {
+          templateUrl: "home.html"
+        })
+        .when("/about", {
+          templateUrl: "about.html"
+        })
+        .when("/subjects", {
+          templateUrl: "subjects.html"
+        })
+        .when("/contact", {
+          templateUrl: "contact.html"
+        })
+        .when("/login", {
+          templateUrl: "login.html"
+        })
+        .when('/forgot-password', {
+          templateUrl: 'forgot-password.html'
+        })
+        .when("/register", {
+          templateUrl: "register.html"
+        })
+        .when("/update-account", {
+          templateUrl: "update-account.html",
+          controller: 'AccountController'
+        })
+        .when("/change-pass", {
+          templateUrl: "change-pass.html"
+        })
+        .when("/result", {
+          templateUrl: "result.html"
+        })
+        .when('/subject-single/:param1', {
+          templateUrl: 'subject-single.html',
+          controller: 'RoutingController'
+        })
+    });
+    app.controller("ctrl", function ($scope, $http, $location) {
+      $scope.subjects = [];
+      $scope.students = [];
+      $scope.limit = 9;
+      $scope.loginSuccess = false;
+      $scope.accountExist = false;
+      $scope.findPassword = null;
+      $scope.userID = null;
+      $scope.userName = null;
+      $scope.user = null;
+      $scope.loadMore = function () {
+        var increamented = $scope.limit + 9;
+        $scope.limit = increamented > $scope.subjects.length ? $scope.subjects.length : increamented;
+      };
+      $http.get('data.json')
+        .then(function (response) {
+          $scope.subjects = response.data.subjects;
+          $scope.students = response.data.students;
+        }, function (response) {
+          console.log("lổi");
+        });
+      $scope.login = function () {
+        var username = $('input[name = Username]').val();
+        var password = $('input[name = Password]').val();
+        for (var i = 0; i < $scope.students.length; i++) {
+          if (username == $scope.students[i].username && password == $scope.students[i].password) {
+            $scope.loginSuccess = true;
+            $scope.userID = $scope.students[i].id;
+          }
+        }
+        if ($scope.loginSuccess == true) {
+          sessionStorage.setItem("username", username);
+          sessionStorage.setItem("userid", $scope.userID);
+          alert("Chúc mừng bạn đã đăng nhập thành công !");
+          window.location.href = window.location.href.split('#')[0];
+          $location.url('/');
+        } else {
+          alert("Đăng nhập thất bại !");
+        }
+      }      
+      $scope.userName = sessionStorage.getItem("username");
+      $scope.userID = sessionStorage.getItem("userid");
+      $scope.forgotPassword = function () {
+        var username = $('input[name = Username]').val();
+        var email = $('input[name = Email]').val();
+        for (var i = 0; i < $scope.students.length; i++) {
+          if (username == $scope.students[i].username && email == $scope.students[i].email) {
+            $scope.accountExist = true;
+            $scope.findPassword = $scope.students[i].password;
+          }
+        }
+        if ($scope.accountExist == true) {
+          alert("Mật khẩu của bạn là: " + $scope.findPassword);
+        } else {
+          alert("Tên đăng nhập hoặc email không đúng !");
+        }
+      }
+      $scope.clearSession = function () {
+        sessionStorage.clear();
+        location.reload();
+      }
+      $scope.changePass = function () {
+        var newpassword = $('input[name = newpassword]').val();
+        $scope.fullname = null;
+        $scope.username = null;
+        $scope.password = null;
+        $scope.email = null;
+        $scope.birthday = null;
+        $scope.gender = null;
+        $scope.marks = 0;
+        $scope.schoolfee = 0;
+        for (var i = 0; i < $scope.students.length; i++) {
+          if ($scope.userID == $scope.students[i].id) {
+            $scope.fullname = $scope.students[i].fullname;
+            $scope.username = $scope.students[i].username;
+            $scope.password = newpassword;
+            $scope.email = $scope.students[i].email;
+            $scope.birthday = $scope.students[i].birthday;
+            $scope.gender = $scope.students[i].gender;
+            $scope.marks = $scope.students[i].marks;
+            $scope.schoolfee = $scope.students[i].schoolfee;
+          }
+        }
+        var data = {
+          fullname: $scope.fullname,
+          username: $scope.username,
+          password: $scope.password,
+          email: $scope.email,
+          birthday: $scope.birthday,
+          gender: $scope.gender,
+          marks: $scope.marks,
+          schoolfee: $scope.schoolfee
+        };
+        $http.put('http://localhost:3000/students/' + $scope.userID, JSON.stringify(data))
+          .then(function (response) {
+            if (response)
+              alert("Đổi mật khẩu thành công!");
+            location.reload();
+          },
+            function (response) {
+              alert("Đổi mật khẩu thất bại!");
+            });
+      }
+    });
+    app.controller("RoutingController", function ($scope, $routeParams, $location, $http, $timeout) {
+      $scope.counter = 600;
+      $scope.onTimeout = function () {
+        if ($scope.counter > 0) $scope.counter--;
+        mytimeout = $timeout($scope.onTimeout, 1000);
+      }
+      var mytimeout = $timeout($scope.onTimeout, 1000);
+      var url = $location.path().split('/');
+      $scope.bannerName = '';
+      $scope.subject = [];
+      $scope.quizs = [];
+      $scope.questions = [];
+      $scope.firstParameter = url[2];
+      $scope.viewby = 1;
+      $scope.currentPage = 1;
+      $scope.correct = false;
+      $scope.checked = false;
+      $scope.marks = 0;
+      $scope.hetgio = function () {
+        $scope.hetgio = $scope.counter;
+        alert("Hoàn thành bài thi, nice");
+        $scope.counter = 0;
+      };
+      if ($scope.questions != []) {
+        $scope.questions = [];
+      }
+      if ($scope.firstParameter) {
+        $http({
+          method: 'GET',
+          url: 'http://localhost:3000/subjects/' + $scope.firstParameter,
+        }).then(function (response) {
+          $scope.subject = response.data;
+        });
+        $http.get('db/Quizs/' + $scope.firstParameter + '.json')
+          .then(function (response) {
+            $scope.quizs = response.data[$scope.firstParameter];
+            $scope.curPage = 1,
+              $scope.itemsPerPage = 1,
+              $scope.maxSize = 10;
+            for (var i = 0; i < 10; i++) {
+              var randomItem = $scope.quizs[Math.floor(Math.random() * $scope.quizs.length)];
+              $scope.questions.push(randomItem);
+            }
+            $scope.numOfPages = function () {
+              return Math.ceil($scope.questions.length / $scope.itemsPerPage);
+            };
+            $scope.$watch('curPage + numPerPage', function () {
+              var begin = (($scope.curPage - 1) * $scope.itemsPerPage),
+                end = begin + $scope.itemsPerPage;
+              $scope.filteredItems = $scope.questions.slice(begin, end);
+              $scope.chooseAnswer = function (answerId, curPage, itemId) {
+                if ($scope.questions[curPage - 1]) {
+                  $scope.questions[curPage - 1]['checked'] = true;
+                  if (answerId == $scope.questions[curPage - 1].AnswerId) {
+                    $scope.questions[curPage - 1]['correct'] = true;
+                    $scope.marks = $scope.marks + $scope.questions[curPage - 1]['Marks'];
+                    for (var i = 0; i < $scope.questions[curPage - 1].Answers.length; i++) {
+                      if (answerId == $scope.questions[curPage - 1].Answers[i].Id) {
+                        $scope.questions[curPage - 1].Answers[i]['result'] = true;
+                        document.querySelector("#checked" + answerId).parentElement.classList.add('color-correct');
+                        $scope.ids = answerId;
+                        $scope.item = itemId;
+                        $scope.chon = $scope.questions[curPage - 1].Answers[i].Text;
+                        $scope.dapan = $scope.questions[curPage - 1].Answers[i].Text;
+                      }
+                    }
+                  }
+
+                  if (answerId != $scope.questions[curPage - 1].AnswerId) {
+                    for (var i = 0; i < $scope.questions[curPage - 1].Answers.length; i++) {
+                      if (answerId == $scope.questions[curPage - 1].Answers[i].Id) {
+                        $scope.questions[curPage - 1].Answers[i]['result'] = false;
+                        document.querySelector("#checked" + answerId).parentElement.classList.add('color-faild');
+
+                      }
+                      if ($scope.questions[curPage - 1].AnswerId == $scope.questions[curPage - 1].Answers[i].Id) {
+                        $scope.questions[curPage - 1].Answers[i]['result'] = true;
+                        document.querySelector("#checked" + answerId).parentElement.classList.add('color-correct');
+
+                      }
+                    }
+                    for (var i = 0; i < $scope.questions[curPage - 1].Answers.length; i++) {
+                      if ($scope.questions[curPage - 1].Answers[i]['result'] == false) {
+                        $scope.chon = $scope.questions[curPage - 1].Answers[i].Text;
+                      } else if ($scope.questions[curPage - 1].Answers[i]['result'] == true) {
+                        $scope.dapan = $scope.questions[curPage - 1].Answers[i].Text;
+                      }
+                    }
+                  }
+                  $scope.trang = curPage - 1;
+                  if ($scope.trang == 0) {
+                    $scope.chon1 = $scope.chon;
+                    $scope.dapan1 = $scope.dapan;
+                  } else if ($scope.trang == 1) {
+                    $scope.chon2 = $scope.chon;
+                    $scope.dapan2 = $scope.dapan;
+                  } else if ($scope.trang == 2) {
+                    $scope.chon3 = $scope.chon;
+                    $scope.dapan3 = $scope.dapan;
+                  } else if ($scope.trang == 3) {
+                    $scope.chon4 = $scope.chon;
+                    $scope.dapan4 = $scope.dapan;
+                  } else if ($scope.trang == 4) {
+                    $scope.chon5 = $scope.chon;
+                    $scope.dapan5 = $scope.dapan;
+                  } else if ($scope.trang == 5) {
+                    $scope.chon6 = $scope.chon;
+                    $scope.dapan6 = $scope.dapan;
+                  } else if ($scope.trang == 6) {
+                    $scope.chon7 = $scope.chon;
+                    $scope.dapan7 = $scope.dapan;
+                  } else if ($scope.trang == 7) {
+                    $scope.chon8 = $scope.chon;
+                    $scope.dapan8 = $scope.dapan;
+                  } else if ($scope.trang == 8) {
+                    $scope.chon9 = $scope.chon;
+                    $scope.dapan9 = $scope.dapan;
+                  } else if ($scope.trang == 9) {
+                    $scope.chon10 = $scope.chon;
+                    $scope.dapan10 = $scope.dapan;
+                  }
+                }
+              }
+            });
+          }, function (response) {
+            console.log("lổi");
+          });
+      }
+    });
+    app.filter('secondsToDateTime', [function () {
+      return function (seconds) {
+        return new Date(1970, 0, 1).setSeconds(seconds);
+      };
+    }]);
+    app.controller('addStudent', function ($scope, $http) {
+      $scope.fullname = null;
+      $scope.username = null;
+      $scope.password = null;
+      $scope.email = null;
+      $scope.birthday = null;
+      $scope.gender = null;
+      $scope.marks = 0;
+      $scope.schoolfee = 0;
+      $scope.register = function (fullname, username, password, email, birthday, gender, marks, schoolfee) {
+        var data = {
+          fullname: fullname,
+          username: username,
+          password: password,
+          email: email,
+          birthday: birthday,
+          gender: gender,
+          marks: marks,
+          schoolfee: schoolfee
+        };
+        $http.post('http://localhost:3000/students', JSON.stringify(data))
+          .then(function (response) {
+            if (response.data)
+              alert("Đăng ký thành công!");
+          },
+            function (response) {
+              alert("Đăng ký thất bại!");
+
+            });
+      };
+    });
+    app.controller('AccountController', function ($scope, $http) {
+      $scope.username = null;
+      $scope.fullname = null;
+      $scope.email = null;
+      $scope.password = null;
+      $scope.birthday = null;
+      $scope.gender = null;
+      $http.get('http://localhost:3000/students/' + $scope.userID)
+        .then(function (response) {
+          $scope.username = response.data.username;
+          $scope.fullname = response.data.fullname;
+          $scope.email = response.data.email;
+          $scope.password = response.data.password;
+          $scope.birthday = response.data.birthday;
+          $scope.gender = response.data.gender;
+          $scope.schoolfee = response.data.birthday;
+          $scope.marks = response.data.marks;
+          $scope.update = function () {
+            var username = $scope.username;
+            var fullname = $('input[name = fullname]').val();
+            var email = $('input[name = email]').val();
+            var password = $scope.password;
+            var birthday = $('input[name = birthday]').val();
+            var gender = $('input[name = gender2]').val();
+            var schoolfee = $scope.schoolfee;
+            var marks = $scope.marks;
+            var data = {
+              fullname: fullname,
+              username: username,
+              password: password,
+              email: email,
+              birthday: birthday,
+              gender: gender,
+              marks: marks,
+              schoolfee: schoolfee
+            };
+            $http.put('http://localhost:3000/students/' + $scope.userID, JSON.stringify(data))
+              .then(function (response) {
+                if (response)
+                  alert("Cập nhật thành công!");
+                location.reload();
+              },
+                function (response) {
+                  alert("Cập nhật thất bại!");
+                });
+          }
+        }, function (response) {
+          console.log("lổi");
+        });
+
+    });
+  </script>
+  <script>
+
+
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      $("#name").text(profile.getName());
+      $("#email").text(profile.getEmail());
+      $("#image").attr('src', profile.getImageUrl());
+      $(".data").css("display", "block");
+
+      // for (var i = 0; i < $scope.students.length; i++) {
+      //   if ($scope.students[i].username =  "Bùi Đức Minh") {
+      //     $scope.userID = $scope.students[i].id;
+      //     alert($scope.userID);
+      //   }
+      // }
+      sessionStorage.setItem("username", profile.getName());
+      sessionStorage.setItem("userid", 1);
+      // alert($scope.userID);
+    }
+
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        alert("you have been sign out");
+        $(".g-signin2").css("display", "block");
+        $(".data").css("display", "none");
+        location.reload();
+      });
+    }
+  </script>
+
+  <script src="plugins/jQuery/jquery.min.js"></script>
+  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+  <script src="plugins/slick/slick.min.js"></script>
+  <script src="plugins/aos/aos.js"></script>
+  <script src="plugins/venobox/venobox.min.js"></script>
+  <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

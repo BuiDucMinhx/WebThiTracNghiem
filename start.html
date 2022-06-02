@@ -1,0 +1,35 @@
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">Danh sách các môn</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="css-categories-test">
+                    <h4><i class="fa fa-list-ul" aria-hidden="true"></i> DANH MỤC MÔN TEST</h4>
+                </div>
+                <ul class="list-group list-group-cate" ng-repeat="sub in subjects">
+                    <li class="list-group-item">
+                        <a class="dropdown-item" href="#!subject-single/{{sub.id}}">{{sub.Name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- notice content -->
+            <div class="col-8">
+                <div class="row">
+                    <h3>Tham gia bài test</h3>
+                    <a href="#!subject-single/param1" class="btn btn-primary">Bắt đầu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

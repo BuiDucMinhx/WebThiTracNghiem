@@ -1,0 +1,49 @@
+<style>
+	.container-body {
+		background: url(./images/backgrounds/background.jpg) no-repeat 0px 0px;
+		background-size: 100%;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+	}
+	.section-login {
+		padding: 15% 0 5% 0;
+	}
+</style>
+<div class="section-login">
+	<div class="main-w3layouts-agileinfo">
+		<div class="wthree-form">
+			<h2>ĐĂNG NHẬP</h2>		
+			<form name="form" ng-submit="login()" role="form" method="post" class="form-special">
+				<div class="form-sub-w3">
+					<input type="text" name="Username" placeholder="Tên người dùng" name="username" required="" />
+					<div class="icon-w3">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<span class="form-error" ng-show="form.$submitted && form.username.$invalid">
+						Vui lòng nhập tên người dùng!
+					</span>
+				</div>
+				<div class="form-sub-w3">
+					<input type="password" name="Password" placeholder="Mật khẩu" required="" />
+					<div class="icon-w3">
+						<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+					</div>
+				</div>
+				<label class="anim">
+					<input type="checkbox" class="checkbox">
+					<span>Ghi nhớ</span>
+					<a href="#!forgot-password">Quên mật khẩu?</a>
+				</label>
+				<div class="clear"></div>
+				<div class="submit-agileits">
+					<input type="submit" value="Đăng nhập">
+				</div>
+				<div class="clear"></div>
+				<label class="css-register">
+					<span>Bạn chưa có tài khoản? <a href="#!register">Đăng kí</a></span>
+				</label>				
+			</form>
+		</div>
+	</div>
+</div>

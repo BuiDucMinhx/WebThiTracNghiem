@@ -1,0 +1,66 @@
+#navigation ul li .dropdown-menu{
+    left: -180px;
+    width: 697px;
+}
+.bg-cover .container .row .col-lg-6 form .form-group .form-control{
+    height: 38px;
+}
+.card-title-height{
+    font-size: 17px;
+    height: 40px;
+}
+.list-group-cate{
+    border: 1px solid rgba(0,0,0,.125);
+}
+.list-group-cate .list-group-item{
+    padding: 0 !important;
+    border: none !important;
+}
+.list-group-cate .list-group-item .dropdown-item{
+    padding: 15px;
+}
+.list-group-cate .list-group-item .dropdown-item:hover,
+.list-group-cate .list-group-item .dropdown-item.active{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #FFBC3B;
+}
+.card-question .card-header,
+.card-question-footer{
+    background-color: #1A1A37;
+    color: #fff;
+}
+.card-question{
+    padding-left: 0;
+}
+.card-question-footer{
+    margin: 0;
+}
+.card-question-footer span{
+    padding: 10px 20px;
+}
+.card-question-footer ul{
+    display: inline-flex;
+}
+.card-question-footer ul li a{
+    display: block;
+    padding: 10px 15px;
+}
+.card-question-footer ul li.active{
+    background-color: #FFBC3B;
+}
+.correct{
+    font-weight: 600;
+}
+.color-correct{
+    color: green;
+    font-weight: 700;
+}
+.color-faild{
+    color: red;
+    font-weight: 700;
+}
+.form-error{
+    color: red;
+    font-style: italic;
+}
